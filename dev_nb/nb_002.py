@@ -100,7 +100,7 @@ ImgLabel = str
 ImgLabels = Collection[ImgLabel]
 Classes = Collection[Any]
 
-class FilesDataset(LabelDataset):
+class ImageDataset(LabelDataset):
     "Dataset for folders of images in style {folder}/{class}/{images}"
     def __init__(self, fns:FilePathList, labels:ImgLabels, classes:Optional[Classes]=None):
         self.classes = ifnone(classes, list(set(labels)))
@@ -124,7 +124,7 @@ class FilesDataset(LabelDataset):
 
     @classmethod
     def from_folder(cls, folder:Path, classes:Optional[Classes]=None,
-                    valid_pct:float=0., check_ext:bool=True) -> Union['FilesDataset', List['FilesDataset']]:
+                    valid_pct:float=0., check_ext:bool=True) -> Union['ImageDataset', List['ImageDataset']]:
         "Dataset of `classes` labeled images in `folder`. Optional `valid_pct` split validation set."
         if classes is None: classes = [cls.name for cls in find_classes(folder)]
 
@@ -505,7 +505,7 @@ def grid_sample_nearest(input:TensorImage, coords:FlowField, padding_mode:str='z
 def grid_sample(x:TensorImage, coords:FlowField, mode:str='bilinear', padding_mode:str='reflect')->TensorImage:
     "Grab pixels in `coords` from `input` sampling by `mode`. pad is reflect or zeros."
     if padding_mode=='reflect': padding_mode='reflection'
-    if mode=='nearest': return grid_sample_nearest(x[None], coords, padding_mode)[0]
+    #if mode=='nearest': return grid_sample_nearest(x[None], coords, padding_mode)[0]
     return F.grid_sample(x[None], coords, mode=mode, padding_mode=padding_mode)[0]
 
 def affine_grid(size:TensorImageSize)->FlowField:

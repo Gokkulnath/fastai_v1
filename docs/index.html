@@ -1,37 +1,25 @@
 ---
-title: "fastai1 test"
-keywords: fastai
-tags: [docs]
+title: fastai
+keywords: 
 sidebar: home_sidebar
-summary: This is a summary
+tags: 
+summary: 
 ---
 
+<div class="container" id="notebook-container">
+    
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="gen_doc.gen_notebooks">gen_doc.gen_notebooks<a class="anchor-link" href="#gen_doc.gen_notebooks">&#182;</a></h1>
+<h1 id="Welcome-to-fastai">Welcome to fastai<a class="anchor-link" href="#Welcome-to-fastai">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This module contains the scripts and API to auto-generate or update a documentation notebook skeleton from a given .py file or a full package. It is not expected you'd use this skeleton as your final docs - you should add markdown, examples, etc to it. The skeleton just has a minimal list of exported symbols.</p>
-<p><code>sgen_notebooks</code> is a script that transforms a given module into a notebook skeleton. The usage is</p>
-
-<pre><code>python -m sgen_notebooks package path_to_result [--update]</code></pre>
-<ul>
-<li><strong>package</strong> is the package you want to write the documentation of. Note that if the package isn't installed in your environment, you need to execute to execute the script in a place where package is a directory (or make a simlink to it). The script will search thourgh all the subdirectories to create all the relevant notebooks.</li>
-<li><strong>path_to_result</strong> is a directory where you want those notebooks. The script will auto-execute them, so this directory should contain the file nbdoc.py from this package. If the module you are documenting isn't installed, you will also need to have a simlink to it in your path_to_result folder.</li>
-<li>if the flag <strong>--update</strong> is added, the script will update the notebooks (to reflect the addition of new functions or new arguments).</li>
-</ul>
-<p>Alternatively, you can access the same functionality through the module API, documented below.</p>
-<p><strong>Important note:</strong> The notebooks automatically generated or updated need to be trusted before you can see the results in the output cells. To trust a notebook, click on File, then Trust notebook.</p>
-<p>This module also contains the scripts and API to convert the documentation notebooks into HTML, which is the format used for the final documentation site.</p>
+<p>The fastai library simplifies training fast and accurate neural nets using modern best practices. It's based on research in to deep learning best practices undertaken at <a href="http://www.fast.ai">fast.ai</a>. If you're looking for the source code, head over to the <a href="https://github.com/fastai/fastai_pytorch">fastai_pytorch repo</a> on GitHub.</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -41,48 +29,35 @@ summary: This is a summary
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This package requires:</p>
-<ul>
-<li><a href="https://github.com/jupyter/nbconvert">nbconvert</a>: conda install nbconvert</li>
-<li><a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">nb_extensions</a>: conda install -c conda-forge jupyter_contrib_nbextensions</li>
-</ul>
+<p>To install fastai, we recommend <code>conda</code>:</p>
+
+<pre><code>conda install -c fastai fastai
+
+</code></pre>
+<p>Alternatively, you can install using pip - if you do so, you'll first need to install the latest pytorch <code>conda-nightly</code> package or source from master.</p>
+
+<pre><code>pip install fastai
+
+</code></pre>
+<p>fastai is a pure python package, so you can also simply symlink the fastai directory to wherever you're running your code, as long as you've installed the dependencies (listed in the conda and pip files).</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Once nbextensions is installed, your home page of jupyter notebook will look like this:</p>
-<p><img src="imgs/nbext.png" alt="Homepage with nbextension"></p>
+<h2 id="Reading-the-docs">Reading the docs<a class="anchor-link" href="#Reading-the-docs">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
 
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Click on the Nbextensions tab then make sure the hide inputs extension is activated:</p>
-<p><img src="imgs/hide_input.png" alt="Activate hidden input"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>As its name suggests, this will allow you to hide input cells and only show their results.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Convert-modules-into-notebook-skeleton">Convert modules into notebook skeleton<a class="anchor-link" href="#Convert-modules-into-notebook-skeleton">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The first (optional) step is to create a notebook "skeleton" - i.e. a notebook containing all the classes, methods, functions, and other symbols you wish to document. You can create this manually if you prefer, however using the automatic approach can save you some time and ensure you don't miss anything. For the initial skelton, use <code>create_module_path</code>, which creates a new module from scratch. To update it later with any newly-added symbols, use <code>update_module_page</code>.</p>
-
+<p>To get started quickly, click <em>Applications</em> on the sidebar, and then choose the application you're interested in. That will take you to a walk-through of training a model of that type. You can then either explore the various links from there, or dive more deeply into the various fastai modules.</p>
+<p>We've provided below a quick summary of the key modules in this library. For details on each one, use the sidebar to find the module you're interested in. Each module includes an overview and example of how to use it, along with documentation for every class, function, and method. API documentation looks, for example, like this:</p>
+<h3 id="An-example-function">An example function<a class="anchor-link" href="#An-example-function">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -95,37 +70,10 @@ summary: This is a summary
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4><a id=create_module_page></a><strong>create_module_page</strong>(<em>mod</em>, <em>dest_path</em>, <em>force</em>=False)</h4>
-<p>Creates the documentation notebook for module <code>mod_name</code> in path <code>dest_path</code></p>
-<ul>
-<li><em>mod</em>: the module</li>
-<li><em>dest_path</em>: the folder in which to generate the notebook</li>
-<li><em>force</em>: if False, will raise an exception if the notebook is already present</li>
-</ul>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4><a id=update_module_page></a><strong>update_module_page</strong>(<em>mod</em>, <em>dest_path</em>)</h4>
-<p>Updates the documentation notebook of a given module</p>
-<ul>
-<li><em>mod</em>: the module</li>
-<li><em>dest_path</em>: the folder in which to generate the notebook</li>
-</ul>
+<h4><a id=rotate></a><code>rotate</code></h4>
+<blockquote><p><code>rotate</code>(<code>degrees</code>:<a href="/vision.image.html#uniform"><code>uniform</code></a>) -&gt; <a href="/vision.image.html#Image"><code>Image</code></a> :: <a href="/vision.image.html#TfmAffine"><code>TfmAffine</code></a></p>
+</blockquote>
+<p>Rotate image by <code>degrees</code>. <a href="https://github.com/fastai/fastai_pytorch/blob/master/fastai/vision/transform.py#L22">[source]</a></p>
 
 </div>
 
@@ -137,7 +85,29 @@ summary: This is a summary
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>All the cells added by a user are conserved, only the cells of new symbols (aka that weren't documented before) will be inserted at the end. You can then move them to wherever you like in the notebook. For instance, to update this module's documentation, simply run:</p>
+<hr>
+<p>Types for each parameter, and the return type, are displayed following standard Python <a href="https://www.python.org/dev/peps/pep-0484/">type hint syntax</a>. Sometimes for compound types we use <a href="/fastai_typing.html">type variables</a>. Types that are defined by fastai or Pytorch link directly to more information about that type; try clicking <em>Image</em> in the function above for an example. The docstring for the symbol is shown immediately after the signature, along with a link to the source code for the symbol in GitHub. After the basic signature and docstring you'll find examples and additional details (not shown in this example). As you'll see at the top of the page, all symbols documented like this also appear in the table of contents.</p>
+<p>For inherited classes and some types of decorated function, the base class or decorator type will also be shown at the end of the signature, delimited by <code>::</code>. For <code>vision.transforms</code>, the random number generator used for data augmentation is shown instead of the type, for randomly generated parameters.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Module-structure">Module structure<a class="anchor-link" href="#Module-structure">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Imports">Imports<a class="anchor-link" href="#Imports">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>fastai is designed to support both interactive computing as well as traditional software development. For interactive computing, where convenience and speed of experimentation is a priority, data scientists often prefer to grab all the symbols they need, with <code>import *</code>. Therefore, fastai is designed to support this approach, without compromising on maintainability and understanding.</p>
+<p>In order to do so, the module dependencies are carefully managed (see next section), with each exporting a carefully chosen set of symbols when using <code>import *</code>. In general, for interactive computing, you'll want to import from both <code>fastai</code>, and from one of the <em>applications</em>, such as:</p>
 
 </div>
 </div>
@@ -147,113 +117,19 @@ summary: This is a summary
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">update_module_page</span><span class="p">(</span><span class="n">nbdoc</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">fastai</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">fastai.vision</span> <span class="k">import</span> <span class="o">*</span>
 </pre></div>
 
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>You can also generate and update <em>all</em> modules in a package using <code>generate_all</code> and <code>update_all</code>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4><a id=generate_all></a><strong>generate_all</strong>(<em>pkg_name</em>, <em>dest_path</em>, <em>exclude</em>=None)</h4>
-<p>Generate the documentation for all the modules in <code>pkg_name</code></p>
-<ul>
-<li><em>pkg_name</em>: name of the package to document</li>
-<li><em>dest_path</em>: the folder in which to generate the notebooks</li>
-<li><em>exclude</em>: names of subdirectories to ignore</li>
-</ul>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4><a id=update_all></a><strong>update_all</strong>(<em>pkg_name</em>, <em>dest_path</em>, <em>exclude</em>: '<strong>pycache</strong>')=('.ipynb_checkpoints',)</h4>
-<p>Updates all the notebooks in <code>pkg_name</code></p>
-<ul>
-<li><em>dest_path</em>: the folder in which to generate the notebooks</li>
-<li><em>exclude</em>: names of subdirectories to ignore</li>
-</ul>
-
-</div>
-
-</div>
-
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Add-documentation">Add documentation<a class="anchor-link" href="#Add-documentation">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The automatically generated module will only contain the table of contents and the doc string of the functions and classes in your module (or the ones you picked with __all__). You should add more prose to them in markdown cells, or examples of uses inside the notebook.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>At any time, if you don't want the input of a code cell to figure in the final result, you can use the little button in your tool bar to hide it.</p>
-<p><img src="imgs/button_hide.png" alt="Button to hide an input"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The same button can show you the hidden input from a cell. This used in conjunction with the helper functions from <a href="gen_doc.nbdoc.html">nbdoc</a> should allow you to easily add any content you need.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Convert-notebook-to-html">Convert notebook to html<a class="anchor-link" href="#Convert-notebook-to-html">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Once you're finished, don't forget to properly save your notebook, then you can either convert all the notebooks together with the script:</p>
-
-<pre><code>python -m convert2html dir</code></pre>
-<ul>
-<li><strong>dir</strong> is the directory where all your notebooks are stored.</li>
-</ul>
-<p>If you prefer to do this in a notebook, you can simply type:</p>
+<p>That will give you all the standard external modules you'll need, in their customary namespaces (e.g. <code>pandas as pd</code>, <code>numpy as np</code>, <code>matplotlib.pyplot as plt</code>), plus the core fastai libraries. In addition, the main classes and functions for your application (<a href="/vision.html#vision"><code>fastai.vision</code></a>, in this case), e.g. creating a <a href="/data.html#DataBunch"><code>DataBunch</code></a> from an image folder and training a convolutional neural network (with <a href="/vision.learner.html#ConvLearner"><code>ConvLearner</code></a>), are also imported.</p>
+<p>If you wish to see where a symbol is imported from, either just type the symbol name (in a REPL such as Jupyter Notebook or IPython), or (in most editors) wave your mouse over the symbol to see the definition. For instance:</p>
 
 </div>
 </div>
@@ -263,44 +139,10 @@ summary: This is a summary
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">fastai.gen_doc.convert2html</span> <span class="k">import</span> <span class="n">convert_nb</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ConvLearner</span>
 </pre></div>
 
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">convert_nb</span><span class="p">(</span><span class="s1">&#39;gen_doc.gen_notebooks.ipynb&#39;</span><span class="p">,</span> <span class="s1">&#39;../docs&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>For more information see the <a href="gen_doc.convert2html.html">documentation of convert2html</a>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">FileLink</span>
-<span class="n">FileLink</span><span class="p">(</span><span class="s1">&#39;gen_doc.gen_notebooks.html&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
+    </div>
 </div>
 </div>
 
@@ -310,8 +152,9 @@ summary: This is a summary
 <div class="output_area">
 
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<a href='gen_doc.gen_notebooks.html' target='_blank'>gen_doc.gen_notebooks.html</a><br>
+
+<div class="output_text output_subarea output_execute_result">
+<pre>fastai.vision.learner.ConvLearner</pre>
 </div>
 
 </div>
@@ -320,3 +163,59 @@ summary: This is a summary
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Dependencies">Dependencies<a class="anchor-link" href="#Dependencies">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>At the base of everything are the two modules <a href="/core.html#core"><code>core</code></a> and <a href="/torch_core.html#torch_core"><code>torch_core</code></a> (we're not including the <code>fastai.</code> prefix when naming modules in these docs). They define the basic functions we use in the library; <a href="/core.html#core"><code>core</code></a> only relies on general modules, whereas <a href="/torch_core.html#torch_core"><code>torch_core</code></a> requires pytorch. Most type-hinting shortcuts are defined there too (at least the one that don't depend on fastai classes defined later). Nearly all modules below import <a href="/torch_core.html#torch_core"><code>torch_core</code></a>.</p>
+<p>Then, there are three modules directly on top of <a href="/torch_core.html#torch_core"><code>torch_core</code></a>:</p>
+<ul>
+<li><a href="/vision.data.html#vision.data"><code>data</code></a>, which contains the class that will take a <a href="https://pytorch.org/docs/stable/data.html#torch.utils.data.Dataset"><code>Dataset</code></a> or pytorch <a href="https://pytorch.org/docs/stable/data.html#torch.utils.data.DataLoader"><code>DataLoader</code></a> to wrap it in a <a href="/data.html#DeviceDataLoader"><code>DeviceDataLoader</code></a> (a class that sits on top of a <a href="https://pytorch.org/docs/stable/data.html#torch.utils.data.DataLoader"><code>DataLoader</code></a> and is in charge of putting the data on the right device as well as applying transforms such as normalization) and regroup then in a <a href="/data.html#DataBunch"><code>DataBunch</code></a>.</li>
+<li><a href="/layers.html#layers"><code>layers</code></a>, which contains basic functions to define custom layers or groups of layers</li>
+<li><a href="/metrics.html#metrics"><code>metrics</code></a>, which contains all the metrics</li>
+</ul>
+<p>From <a href="/layers.html#layers"><code>layers</code></a>, we have all the modules in the models folder that are defined. Then from <a href="/vision.data.html#vision.data"><code>data</code></a> we can split on one of the four main <em>applications</em>, which each has their own module: <a href="/vision.html#vision"><code>vision</code></a>, <a href="/text.html#text"><code>text</code></a> <a href="/colab.html#colab"><code>colab</code></a>, or <a href="/tabular.html#tabular"><code>tabular</code></a>. Each of those submodules is built in the same way with:</p>
+<ul>
+<li>a submodule named <a href="/vision.transform.html#vision.transform"><code>transform</code></a> that handles the transformations of our data (data augmentation for computer vision, numericalizing and tokenizing for text and preprocessing for tabular)</li>
+<li>a submodule named <a href="/vision.data.html#vision.data"><code>data</code></a> that contains the class that will create datasets and the helper functions to create <a href="/data.html#DataBunch"><code>DataBunch</code></a> objects.</li>
+</ul>
+<p>This takes care of building your model and handling the data. We regroup those in a <a href="/basic_train.html#Learner"><code>Learner</code></a> object to take care of training. More specifically:</p>
+<ul>
+<li><a href="/callback.html#callback"><code>callback</code></a> (depends on <a href="/vision.data.html#vision.data"><code>data</code></a>) defines the basis of callbacks and the <a href="/callback.html#CallbackHandler"><code>CallbackHandler</code></a>. Those are functions that will be called every step of the way of the training loop and can allow us to customize what is happening there;</li>
+<li><a href="/basic_train.html#basic_train"><code>basic_train</code></a> (depends on <a href="/callback.html#callback"><code>callback</code></a>) defines <a href="/basic_train.html#Learner"><code>Learner</code></a> and <a href="/basic_train.html#Recorder"><code>Recorder</code></a> (which is a callback that records training stats) and has the training loop;</li>
+<li><a href="/callbacks.html#callbacks"><code>callbacks</code></a> (depends on <a href="/basic_train.html#basic_train"><code>basic_train</code></a>) is a submodule defining various callbacks, such as for mixed precision training or 1cycle annealing;</li>
+<li><code>learn</code> (depends on <a href="/callbacks.html#callbacks"><code>callbacks</code></a>) defines helper functions to invoke the callbacks more easily.</li>
+</ul>
+<p>The module <a href="/tta.html#tta"><code>tta</code></a> (for Test Time Augmentation) depends on <a href="/basic_train.html#basic_train"><code>basic_train</code></a>, the module <a href="/colab.html#colab"><code>colab</code></a> (for collaborative filtering) depends on <a href="/basic_train.html#basic_train"><code>basic_train</code></a> and <a href="/layers.html#layers"><code>layers</code></a>, so does the module <a href="/train.html#train"><code>vision.train</code></a> (for our models with a skeleton trained on imagenet and a custom head for classification) and the module <a href="/train.html#train"><code>text.train</code></a> (to automatically get learner objects for NLP) depends on <a href="/callbacks.html#callbacks"><code>callbacks</code></a> (specifically the <a href="/callbacks.rnn.html#callbacks.rnn"><code>rnn</code></a> callback) and <a href="/models.html#models"><code>models</code></a> (specifically the rnn models).</p>
+<p>Here is a graph of the key module dependencies:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="imgs/module_overview.png" alt="Modules overview"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+ 
+

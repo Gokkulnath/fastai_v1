@@ -1,3 +1,7 @@
+.anchor-link{
+    display: none;
+}
+
 body {
     font-size:15px;
 }
@@ -66,23 +70,67 @@ body {
 .gi-5x{font-size: 5em;}
 
 
-
-
-
 .breadcrumb > .active {color: #777 !important;}
 
 /* make room for the nav bar */
-h1[id],
-h2[id],
+h1[id]
+/*,h2[id],
 h3[id],
 h4[id],
 h5[id],
 h6[id],
-dt[id]{
+dt[id]*/
+{
 padding-top: 60px;
 margin-top: -40px
 }
 
+.output_html a{
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    margin: 25px 0px;
+    display: block;
+    padding: 9.5px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #F5F5F5;
+    border: 1px solid #FFA500;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
+        float: left;
+}
+
+.col-md-9 {
+    width: 75%;
+}
+
+/* From: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_download_button' */
+.cstm_btn a{
+   background-color: DodgerBlue;
+   border: none;
+   color: white;
+   padding: 12px 30px;
+   cursor: pointer;
+   font-size: 20px;
+   box-sizing: 15px;
+   position: absolute;
+}
+
+/* Darker background on mouse-over */
+.cstm_btn a:hover {
+    background-color: RoyalBlue;
+}
+
+.container #notebook-container{
+    width: 100%;
+}
 .post-content img {
     margin: 12px 0px 3px 0px;
     width: auto;
@@ -260,6 +308,10 @@ div#toc ul li ul {
 
 div#toc ul li ul li::before {
     content: "–  ";
+}
+
+div#toc ul li ul li.hide_content::before {
+    content: none;
 }
 
 div#toc >ul::before {
@@ -591,7 +643,7 @@ a.fa.fa-envelope-o.mailto {
 }
 
 h3 {color: #ED1951; font-weight:normal; font-size:130%;}
-h4 {color: #808080; font-weight:normal; font-size:120%; font-style:italic;}
+h4 {color: #000000; font-weight:normal; font-size:120%; font-weight:bold;}
 
 .alert, .callout {
     overflow: hidden;
@@ -662,7 +714,10 @@ button.cursorNorm {
 h2  {
     font-size:24px;
     line-height:29px;
+    border-top: 3px solid blue;
+    padding-top: 5px;
 }
+
 span.otherProgrammingLanguages {
     font-style: normal;
 }
@@ -924,17 +979,6 @@ span.soft {
     padding:10px;
 }
 
-/* this part adds an icon after external links, using FontAwesome*/
-a[href^="http://"]:after, a[href^="https://"]:after {
-    content: "\f08e";
-    font-family: FontAwesome;
-    font-weight: normal;
-    font-style: normal;
-    display: inline-block;
-    text-decoration: none;
-    padding-left: 3px;
-}
-
 /* Strip the outbound icon when this class is present */
 a[href].noCrossRef::after,
 a.no_icon:after
@@ -1010,12 +1054,13 @@ span.label.label-primary {
     color: black;
     }
 
-a code {
-    color: #248EC2;
+code {
+        color: #1d1f5b;
+        background-color: #f3f3f3;
 }
 
-code + a > code {
-    margin-left: -7px;
+a code {
+    color: #0082C2;
 }
 
 table th code {
@@ -1198,3 +1243,27 @@ h4.panel-title {
         display:block !important;
     }
 }
+
+.input_area  pre {
+        padding-bottom: 3;
+        margin-top: 10px;
+        background-color: #f5f1e0;
+        border: 0px;
+}
+.output_area pre {
+        padding-top: 3;
+        margin-top: -25px;
+        margin-bottom: 10px;
+        border: 0px;
+        padding-left: 2em;
+}
+blockquote {
+        font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+}
+blockquote code {
+        background-color: white;
+}
+h4 code {
+        background-color: white;
+}
+

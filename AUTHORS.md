@@ -1,11 +1,20 @@
 # Credits
 
-Development Lead
-----------------
+## Development Lead
 
-- Jeremy Howard <info@fast.ai>
+- Jeremy Howard
 
-Contributors
-------------
+## Core Team
 
-None yet. Why not be the first?
+- Sylvain Gugger
+
+## Main Contributors
+
+- Stas Beckman
+- Fransesco Ingham
+- Fred Monroe
+- Andrew Shaw
+- Rachel Thomas
+
+And a big thanks to all of our GitHub contributors!
+
